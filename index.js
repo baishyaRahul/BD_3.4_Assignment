@@ -24,10 +24,10 @@ function addNewItem(cart, productId, name, price, quantity) {
 }
 
 app.get('/cart/add', (req, res) => {
-  let productId = req.query.productId;
+  let productId = parseInt(req.query.productId);
   let name = req.query.name;
-  let price = req.query.price;
-  let quantity = req.query.quantity;
+  let price = parseFloat(req.query.price);
+  let quantity = parseInt(req.query.quantity);
   let cartItems = addNewItem(cart, productId, name, price, quantity);
   res.json({ cartItems });
 });
